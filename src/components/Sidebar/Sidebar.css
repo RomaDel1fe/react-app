@@ -1,0 +1,42 @@
+.Sidebar{
+  flex: 20%;
+  overflow: auto;
+  display: flex;
+  background: #23272f;
+  color: #f6f7f9;
+  border-right: 2px solid #2b2f36;
+}
+@media (max-width:426px) {
+  .Sidebar{
+    flex: 10%;
+    height: auto;
+    overflow: scroll;
+    border-right: 0;
+    border-top: 2px solid #2b2f36;
+  }
+}
+.NavList{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px 20px 0 0;
+}
+.NavItem{
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 0px 16px 16px 0px;
+  transition: all .3s ease;
+}
+.NavItem:hover{
+  background: #343a46;
+}
+.NavItem.active{
+  color: #149ECA;
+  background: rgba(88, 175, 223, 0.1);
+}
