@@ -1,11 +1,17 @@
 .Container{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background: #23272f;
-  padding: 0 15px;
+  padding: 15px 15px;
   color: #f6f7f9;
   height: 100%;
   flex: 80%;
+  overflow: auto;
+}
+@media (max-width:426px) {
+  .Container{
+    flex: 60%;
+  }
 }

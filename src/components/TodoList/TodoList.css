@@ -1,0 +1,49 @@
+.Todo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.TodoForm{
+  display: flex;
+  gap: 10px;
+}
+.TodoList{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 100%;
+  border: 2px solid #2b2f36;
+  max-width: 300px;
+  min-height: 77px;
+  border-radius: 16px;
+  transition: all .3s ease;
+}
+.TodoEmpty{
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  border: 2px solid #2b2f36;
+  border-radius: 8px;
+  background: #2c2c33;
+  color: #d07d77;
+  transition: all .3s ease;
+}
+.TodoEmpty.hide{
+  display: none;
+}
+.TodoItem{
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  border: 2px solid #2b2f36;
+  border-radius: 8px;
+  background: #2b2f36;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.TodoItem.completed {
+  color: #46ad99;
+  background: #26353a;
+}

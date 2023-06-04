@@ -5,12 +5,14 @@ import './Button.css'
 class Button extends Component{
   static propTypes = {
     type: PropTypes.oneOf(['primary', 'secondary']),
-    onClick: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired
+    onClick: PropTypes.func,
+    label: PropTypes.string.isRequired,
+    submit: PropTypes.bool,
   }
 
   static defaultProps = {
-    type: 'primary'
+    type: 'primary',
+    submit: false,
   }
   render(){
     let buttonClass = "Button";
@@ -25,7 +27,13 @@ class Button extends Component{
       default:
         break;
     }
-    return <button className={buttonClass} onClick={this.props.onClick}>{this.props.label}</button>;
+    return <button 
+      className={buttonClass} 
+      onClick={this.props.onClick} 
+      type={this.props.submit ? "submit" : "button"}
+    >
+      {this.props.label}
+    </button>;
   }
 }
 export default Button;
