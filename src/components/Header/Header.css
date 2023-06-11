@@ -1,9 +1,63 @@
 .Header{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 80px;
   background: #232730;
   color: #ebecf0;
   border-bottom: 2px solid #2b2f36;
 }
+.HeaderСontainer{
+  display: flex;
+  padding: 0 15px;
+  /* max-width: 1140px;   */
+  /* margin: 0 auto; */
+}
+.icon-menu {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    z-index: 5;
+}
+.icon-menu span,
+.icon-menu::before,
+.icon-menu::after {
+    content: "";
+    transition: all 0.3s ease 0s;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+}
+.icon-menu::before {
+    top: 0;
+}
+.icon-menu::after {
+    bottom: 0;
+}
+.icon-menu span {
+    top: calc(50% - 1px);
+}
+
+@media (any-hover: none) {
+  .icon-menu {
+      cursor: default;
+  }
+}
+
+.menu-open.icon-menu span {
+  width: 0;
+}
+
+.menu-open.icon-menu::before {
+  top: calc(50% - 1px);
+  transform: rotate(-45deg);
+}
+
+.menu-open.icon-menu::after {
+  bottom: calc(50% - 1px);
+  transform: rotate(45deg);
+}
+

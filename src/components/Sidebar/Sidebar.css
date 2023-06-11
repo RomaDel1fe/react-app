@@ -1,18 +1,35 @@
 .Sidebar{
-  flex: 20%;
+  width: 0px;
+  /* flex: 0px; */
   overflow: auto;
-  display: flex;
+  min-width: 0;
   background: #23272f;
   color: #f6f7f9;
+  border-right: 0px solid #2b2f36;
+  transition: all .3s ease;
+}
+.Sidebar.active{
+  min-width: 200px;
+  display: flex;
   border-right: 2px solid #2b2f36;
 }
-@media (max-width:426px) {
+
+@media (max-width:769px) {
   .Sidebar{
-    flex: 10%;
-    height: auto;
-    overflow: scroll;
-    border-right: 0;
-    border-top: 2px solid #2b2f36;
+    width: 0;
+    height: calc(100% - 80px);
+    position: absolute;
+    min-width: 0px;
+    left: 0;
+    top: 0;
+  }
+  .Sidebar.active{
+    width: 100%;
+    min-width: 200px;
+    z-index: 99;
+    border-right: 2px solid #2b2f36;
+    border-left: 2px solid #2b2f36;
+
   }
 }
 .NavList{
