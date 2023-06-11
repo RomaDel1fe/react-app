@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from "../baseComponents/Input/Input";
-import Button from "../baseComponents/Button/Button";
+import Input from "../../components/baseComponents/Input/Input";
+import Button from "../../components/baseComponents/Button/Button";
 import './TodoList.css'
 
 class TodoList extends React.Component {
