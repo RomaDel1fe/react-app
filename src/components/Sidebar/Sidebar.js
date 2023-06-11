@@ -13,7 +13,8 @@ class Sidebar extends React.Component{
     return <aside className={sidebarClass}>
       <nav className="NavList">
       <CustomNavLink to="/emoji">Emoji Voting</CustomNavLink>
-        <CustomNavLink to="/todo">TodoList</CustomNavLink>
+        <CustomNavLink to="/todo">Todo List</CustomNavLink>
+        <CustomNavLink to="/users">Users List</CustomNavLink>
       </nav>
     </aside>
   }
