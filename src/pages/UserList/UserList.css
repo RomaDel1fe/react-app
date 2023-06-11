@@ -18,6 +18,11 @@
   min-width: 226px;
   max-width: 226px;
 }
+@media (max-width: 789px){
+  .UsersList-container{
+    justify-content: center;
+  }
+}
 .UserName{
   font-size: 16px;
   font-weight: 600;
