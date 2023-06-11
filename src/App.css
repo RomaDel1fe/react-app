@@ -42,6 +42,7 @@
 .Wrapper{
   display: flex;
   height: 100%;
+  position: relative;
 }
 @media (max-width:426px) {
   .Wrapper{

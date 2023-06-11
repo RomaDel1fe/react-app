@@ -1,8 +1,8 @@
 import React from "react";
 import './Container.css'
 import { Routes, Route } from "react-router-dom";
-import TodoList from "../TodoList/TodoList";
-import EmojiVoting from "../EmojiVoting/EmojiVoting";
+import TodoList from "../../pages/TodoList/TodoList";
+import EmojiVoting from "../../pages/EmojiVoting/EmojiVoting";
 
 class Container extends React.Component{
   constructor(props) {

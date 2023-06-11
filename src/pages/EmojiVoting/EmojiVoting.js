@@ -1,6 +1,6 @@
 import { Component } from "react"
-import EmojiList from "../EmojiList/EmojiList";
-import Button from "../baseComponents/Button/Button";
+import EmojiList from "../../components/EmojiList/EmojiList";
+import Button from "../../components/baseComponents/Button/Button";
 import './EmojiVoting.css'
 
 class EmojiVoting extends Component{

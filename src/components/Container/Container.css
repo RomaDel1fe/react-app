@@ -10,8 +10,8 @@
   flex: 80%;
   overflow: auto;
 }
-@media (max-width:426px) {
+/* @media (max-width:426px) {
   .Container{
     flex: 60%;
   }
-}
+} */

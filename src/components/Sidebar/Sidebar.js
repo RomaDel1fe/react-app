@@ -9,7 +9,8 @@ const CustomNavLink = ({ to, children }) => {
 }
 class Sidebar extends React.Component{
   render(){
-    return <aside className="Sidebar">
+    const sidebarClass = this.props.isMenuOpen ? "Sidebar active" : "Sidebar ";
+    return <aside className={sidebarClass}>
       <nav className="NavList">
       <CustomNavLink to="/emoji">Emoji Voting</CustomNavLink>
         <CustomNavLink to="/todo">TodoList</CustomNavLink>
