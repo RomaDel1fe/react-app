@@ -1,0 +1,10 @@
+.FormContactsCreate{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /* padding: 0 20px; */
+}
+/* .FormContactsCreate Input{
+  max-width: 200px;
+} */

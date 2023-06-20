@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import TodoList from "../../pages/TodoList/TodoList";
 import EmojiVoting from "../../pages/EmojiVoting/EmojiVoting";
 import UserList from "../../pages/UserList/UserList";
+import Contacts from "../../pages/Contacts/Contacts";
 
 class Container extends React.Component{
   constructor(props) {
@@ -19,6 +20,7 @@ class Container extends React.Component{
           <Route path="/todo" element={<TodoList />} />
           <Route path="/emoji" element={<EmojiVoting />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
     </main>
   }
