@@ -15,6 +15,7 @@ class Sidebar extends React.Component{
       <CustomNavLink to="/emoji">Emoji Voting</CustomNavLink>
         <CustomNavLink to="/todo">Todo List</CustomNavLink>
         <CustomNavLink to="/users">Users List</CustomNavLink>
+        <CustomNavLink to="/contacts">Contacts</CustomNavLink>
       </nav>
     </aside>
   }
