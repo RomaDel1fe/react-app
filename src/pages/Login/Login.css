@@ -1,0 +1,23 @@
+.Form{
+  padding: 30px;
+  border-radius: 10px;
+  background: #343a46;
+}
+.Login{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.FormTitle{
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.FormRow{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  min-width: 285px;
+  max-width: 285px;
+}

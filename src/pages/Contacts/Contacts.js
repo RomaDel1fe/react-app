@@ -123,13 +123,13 @@ const Contacts = () => {
   }, [value]);
   useEffect(() => {
     if (value === 1) {
-        setNewContactCount(0); // reset newContactCount when user visits 'Contacts' tab
+        setNewContactCount(0);
     }
   }, [value]);  
 
   const handleAddUser = (user) => {
     dispatch({ type: 'ADD_USER', payload: user });
-    setNewContactCount(prevCount => prevCount + 1); // increment newContactCount when a new user is added
+    setNewContactCount(prevCount => prevCount + 1); 
     setUpdateKey(prevKey => prevKey + 1);
   };
 

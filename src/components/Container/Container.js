@@ -5,6 +5,8 @@ import TodoList from "../../pages/TodoList/TodoList";
 import EmojiVoting from "../../pages/EmojiVoting/EmojiVoting";
 import UserList from "../../pages/UserList/UserList";
 import Contacts from "../../pages/Contacts/Contacts";
+import Login from "../../pages/Login/Login";
+import PrivateRoute from '../PrivateRoute/PrivateRoute'; // Оновіть шлях, якщо потрібно
 
 class Container extends React.Component{
   constructor(props) {
@@ -17,10 +19,11 @@ class Container extends React.Component{
   render(){
     return <main className="Container">
         <Routes>
-          <Route path="/todo" element={<TodoList />} />
-          <Route path="/emoji" element={<EmojiVoting />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/todo" element={<PrivateRoute><TodoList /></PrivateRoute>} />
+          <Route path="/emoji" element={<PrivateRoute><EmojiVoting /></PrivateRoute>} />
+          <Route path="/users" element={<PrivateRoute><UserList /></PrivateRoute>} />
+          <Route path="/contacts" element={<PrivateRoute><Contacts /></PrivateRoute>} />
         </Routes>
     </main>
   }

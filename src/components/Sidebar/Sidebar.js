@@ -12,7 +12,8 @@ class Sidebar extends React.Component{
     const sidebarClass = this.props.isMenuOpen ? "Sidebar active" : "Sidebar ";
     return <aside className={sidebarClass}>
       <nav className="NavList">
-      <CustomNavLink to="/emoji">Emoji Voting</CustomNavLink>
+      
+        <CustomNavLink to="/emoji">Emoji Voting</CustomNavLink>
         <CustomNavLink to="/todo">Todo List</CustomNavLink>
         <CustomNavLink to="/users">Users List</CustomNavLink>
         <CustomNavLink to="/contacts">Contacts</CustomNavLink>
