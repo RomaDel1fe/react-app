@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container';
-import Sidebar from './components/Sidebar/Sidebar'
+import Sidebar from './components/Sidebar/Sidebar';
+import { AuthProvider } from './context/AuthContext';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -32,15 +34,17 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Header onToggleMenu={this.handleToggle} isMenuOpen={this.state.toggleMenu}/>
-          <div className='Wrapper'>
-            <Sidebar isMenuOpen={this.state.toggleMenu}/>
-            <Container/>
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <Header onToggleMenu={this.handleToggle} isMenuOpen={this.state.toggleMenu}/>
+            <div className='Wrapper'>
+              <Sidebar isMenuOpen={this.state.toggleMenu}/>
+              <Container />
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </AuthProvider>
     );
   }
 }
