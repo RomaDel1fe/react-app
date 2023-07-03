@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 
-export const initialValues = { login: '', password: '' };
+export const initialValues = { login: '', passwordNew: '', passwordNewConfirm: '' };
 
 export const validationSchema = yup.object().shape({
   login: yup
@@ -10,33 +10,26 @@ export const validationSchema = yup.object().shape({
     .matches(/^\S+$/, 'Login cannot start or end with whitespace')
     .min(5, 'Login must be at least 5 characters')
     .trim(),
-  password: yup
+  passwordNew: yup
     .string()
     .required('Required')
     .matches(/^(?=.*[A-Z])(?=.*[0-9])/, 'Password must contain at least one uppercase letter and one digit')
     .min(8, 'Password must be at least 8 characters'),
+  passwordNewConfirm: yup
+    .string()
+    .required('Required')
+    .oneOf([yup.ref('passwordNew'), null], 'Passwords must match')
 });
 
-export const onSubmit = (login, setLoginError, setPasswordError) => async (values, { setSubmitting }) => {
-  const state = await login({username: values.login, password: values.password}); 
-  setSubmitting(false);
 
-  if (state.isLoggedIn) {
-    setLoginError(null);
-    setPasswordError(null);
-  } else {
-    if (state.user === null) {
-      setLoginError('User not found');
-    } else {
-      setPasswordError('Invalid password');
-    }
+export const onSubmit = (register, setRegistrationError) => async (values, { setSubmitting }) => {
+  try {
+    await register({username: values.login, password: values.password});
+    setSubmitting(false);
+  } catch (error) {
+    setRegistrationError('An error occurred during registration');
   }
 };
-
-
-
-
-
 
 
 export const validate = async (values) => {

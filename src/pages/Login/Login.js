@@ -5,7 +5,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { CssTextField, StyledButton, initialValues, validate, onSubmit } from './constans';
+import { CssTextField, StyledButton, StyledLink } from '../../constants/Index'
+import { initialValues, validate, onSubmit } from './constans';
 import './Login.css';
 
 const Login = () => {
@@ -118,6 +119,12 @@ const Login = () => {
             >
               Login
             </StyledButton>
+            <StyledLink
+              href="/registration"
+              underline="always"
+            >
+            {'Registration'}
+            </StyledLink>
           </form>
         )}
       </Formik>
