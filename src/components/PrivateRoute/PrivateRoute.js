@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
+import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({ children }) => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const location = useLocation();
 
   return isLoggedIn 

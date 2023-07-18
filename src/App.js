@@ -4,7 +4,9 @@ import './App.css';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container';
 import Sidebar from './components/Sidebar/Sidebar';
-import { AuthProvider } from './context/AuthContext';
+// import { AuthProvider } from './context/AuthContext';
+import { Provider } from 'react-redux';
+import store from './redux/store.js';
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +36,7 @@ class App extends Component {
 
   render() {
     return (
-      <AuthProvider>
+      <Provider store={store}>
         <Router>
           <div className="App">
             <Header onToggleMenu={this.handleToggle} isMenuOpen={this.state.toggleMenu}/>
@@ -44,7 +46,7 @@ class App extends Component {
             </div>
           </div>
         </Router>
-      </AuthProvider>
+      </Provider>
     );
   }
 }

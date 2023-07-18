@@ -17,27 +17,10 @@ export const validationSchema = yup.object().shape({
     .min(8, 'Password must be at least 8 characters'),
 });
 
-export const onSubmit = (login, setLoginError, setPasswordError) => async (values, { setSubmitting }) => {
-  const state = await login({username: values.login, password: values.password}); 
+export const onSubmit = (login) => async (values, { setSubmitting }) => {
+  await login(values); 
   setSubmitting(false);
-
-  if (state.isLoggedIn) {
-    setLoginError(null);
-    setPasswordError(null);
-  } else {
-    if (state.user === null) {
-      setLoginError('User not found');
-    } else {
-      setPasswordError('Invalid password');
-    }
-  }
 };
-
-
-
-
-
-
 
 export const validate = async (values) => {
   try {

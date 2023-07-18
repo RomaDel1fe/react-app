@@ -1,18 +1,22 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
+import { useDispatch, useSelector } from 'react-redux';
+// import { AuthContext } from '../../context/AuthContext';
 import { Formik } from 'formik';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { CssTextField, StyledButton } from '../../constants/Index';
-import { initialValues, validate } from './constans';
+import { initialValues, validate, onSubmit } from './constans';
+import { register, setRegistrationError } from '../../redux/authSlice';
 import './Registration.css';
 
 
 const Registration = () => {
-  const { register, setRegistrationError, registrationError } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const registrationError = useSelector((state) => state.auth.registrationError);
+  // const { register, setRegistrationError, registrationError } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -24,7 +28,7 @@ const Registration = () => {
 
   const handleFieldChange = (e) => {
     if (e.target.name === "login" || e.target.name === "password" || e.target.name === "confirmPassword") {
-      setRegistrationError(null);
+      dispatch(setRegistrationError(null));
     }
   };
 
@@ -35,11 +39,7 @@ const Registration = () => {
       <Formik
         initialValues={initialValues}
         validate={validate}
-        onSubmit={(values, { setSubmitting }) => {
-          register({ username: values.login, password: values.passwordNew });
-          setSubmitting(false);
-          navigate('/');
-        }}
+        onSubmit={onSubmit(values => dispatch(register(values), navigate('/')), error => dispatch(setRegistrationError(error)))}
       >
         {({
           values,
