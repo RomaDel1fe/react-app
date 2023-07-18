@@ -24,12 +24,15 @@ export const validationSchema = yup.object().shape({
 
 export const onSubmit = (register, setRegistrationError) => async (values, { setSubmitting }) => {
   try {
-    await register({username: values.login, password: values.password});
+    await register({username: values.login, password: values.passwordNew});
     setSubmitting(false);
   } catch (error) {
     setRegistrationError('An error occurred during registration');
   }
 };
+
+
+
 
 
 export const validate = async (values) => {

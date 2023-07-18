@@ -1,5 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, setLoginError, setPasswordError } from '../../redux/authSlice';
+// import { AuthContext } from '../../context/AuthContext';
 import { Formik } from 'formik';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -10,7 +12,9 @@ import { initialValues, validate, onSubmit } from './constans';
 import './Login.css';
 
 const Login = () => {
-  const { isLoggedIn, login, logout, setLoginError, setPasswordError, loginError, passwordError } = useContext(AuthContext);
+  // const { isLoggedIn, login, logout, setLoginError, setPasswordError, loginError, passwordError } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const { isLoggedIn, loginError, passwordError } = useSelector(state => state.auth);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -18,15 +22,17 @@ const Login = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  
 
   const handleLogout = () => {
-    logout();
+    dispatch(logout());
   };
+
   const handleFieldChange = (e) => {
     if (e.target.name === "login") {
-      setLoginError(null);
+      dispatch(setLoginError(null));
     } else if (e.target.name === "password") {
-      setPasswordError(null);
+      dispatch(setPasswordError(null));
     }
   };
 
@@ -47,7 +53,10 @@ const Login = () => {
       <Formik
         initialValues={initialValues}
         validate={validate}
-        onSubmit={onSubmit(login, setLoginError, setPasswordError)}
+        onSubmit={onSubmit((values) => {
+          console.log('Login values: ', values);
+          dispatch(login(values));
+        }, () => dispatch(setLoginError()), () => dispatch(setPasswordError()))}
       >
         {({
           values,
